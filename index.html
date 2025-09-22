@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paróquia N S do Carmo</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/script.js"defer></script>
+</head>
+<body>
+
+  <header>
+    <img class="logo-img" src="assets/img/logo.jpg" alt="Logo Eri Confeitaria">
+    <h1>Paróquia Nossa Senhora do Carmo</h1>
+    <h2>Alto da Jaqueira, Aracaju-SE!</h2>
+    <h3>Peça à mãe que O Filho atende!!!</h3>
+    <h3>79 9 8803-5219</h3>
+
+    <a href="https://wa.me/5579988035219?text=Olá,%20gostaria%20de%20fazer%20um%20pedido!" target="_blank" class="btn-whatsapp">
+      <img src="assets/img/zap.jpg" alt="WhatsApp"> Fale comigo no WhatsApp
+    </a>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#oracoes">Orações</a>
+    <a href="#serviços">Serviços</a>
+    <a href="#produtos">Celebrações</a>
+    <a href="#pedido">Eventos</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <!-- Carrossel -->
+<section class="apresentacao">
+  <div class="carrossel">
+    <div class="slide ativo"><img src="assets/img/santaMissa.jpg" alt="santaMissa"></div>
+    <div class="slide"><img src="assets/img/batismo.jpg" alt="batismo"></div>
+    <div class="slide"><img src="assets/img/catequese_1ª Eucaristia.jpg" alt="catequese_1ª Eucaristia"></div>
+    <div class="slide"><img src="assets/img/crisma.jpg" alt="ccrisma"></div>
+    <div class="slide"><img src="assets/img/7dia.jpg" alt="Missa de 7º dia"></div>
+    <div class="slide"><img src="assets/img/casamento1.jpg" alt="casamento1"></div>
+    <div class="slide"><img src="assets/img/Unção dos Enfermos.jpg" alt="Unção dos Enfermos.jpg"></div>
+
+    <button class="anterior" onclick="moverSlide(-1)">❮</button>
+    <button class="proximo" onclick="moverSlide(1)">❯</button>
+  </div>
+
+  <!-- Indicadores serão criados pelo JS -->
+  <div class="indicadores"></div>
+</section>
+
+  <h2 class="chamada">Escolha o Serviço</h2>
+
+  <!-- Lista de Produtos -->
+  <section class="produtos" id="produtos">
+    <div class="produto">
+      <img src="assets/img/santaMissa.jpg" alt="santaMissa.jpg">
+      <h3>Santa Missa</h3>
+      <p>R$ 00,00</p>
+      <button onclick="adicionarCarrinho('Santa Missa', 0)">Adicionar</button>
+    </div>
+    <div class="produto">
+      <img src="assets/img/batismo.jpg" alt="batismo.jpg">
+      <h3>Batismo</h3>
+      <p>R$ 00,00</p>
+      <button onclick="adicionarCarrinho('Batismo', 0)">Adicionar</button>
+    </div>
+    <div class="produto">
+      <img src="assets/img/catequese_1ª Eucaristia.jpg " alt="catequese_1ª Eucaristia.jpg">
+      <h3>catequese para 1ª Eucaristia</h3>
+      <p>R$ 00,00</p>
+      <button onclick="adicionarCarrinho('catequese para 1ª Eucaristia', 0)">Adicionar</button>
+    </div>
+    <div class="produto">
+      <img src="assets/img/crisma.jpg" alt="crisma">
+      <h3>Catequese para Crisma</h3>
+      <p>R$ 00,00</p>
+      <button onclick="adicionarCarrinho('crisma', 0)">Adicionar</button>
+    </div>
+    <div class="produto">
+      <img src="assets/img/7dia.jpg" alt="7ºdia.jpg">
+      <h3>Missa de 7º dia</h3>
+      <p>R$ 00,00</p>
+      <button onclick="adicionarCarrinho('Missa de 7º dia<', 0)">Adicionar</button>
+    </div>
+    <div class="produto">
+      <img src="assets/img/casamento1.jpg" alt="Casamento">
+      <h3>Casamento</h3>
+     <p>R$ 00,00</p>
+      <button onclick="adicionarCarrinho('Casamento', 0)">Adicionar</button>
+    </div>
+    <div class="produto">
+      <img src="assets/img/Unção dos Enfermos.jpg" alt="Unção dos Enfermos">
+      <h3>Unção dos Enfermos</h3>
+      <p>R$ 00,00</p>
+      <button onclick="adicionarCarrinho('Unção dos Enfermos', 0)">Adicionar</button>
+    </div>
+  </section>
+
+  <!-- Formulário e Carrinho -->
+  <section class="pedido" id="pedido">
+    <div class="formulario">
+      <div class="campo">
+        <label for="nome">Seu Nome:</label>
+        <input type="text" id="nome" required>
+      </div>
+
+      <div class="campo">
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" required>
+      </div>
+
+      <div class="campo">
+        <label for="referencia">Ponto de Referência:</label>
+        <input type="text" id="referencia" required>
+      </div>
+
+      <div class="campo">
+        <label for="troco">Deseja troco?</label>
+        <select id="troco" onchange="alternarTroco(this)">
+          <option value="nao">Não</option>
+          <option value="sim">Sim</option>
+        </select>
+      </div>
+
+      <div class="campo" id="campo-troco" style="display:none;">
+        <label for="valor-troco">Valor do Troco:</label>
+        <input type="number" id="valor-troco" min="0">
+      </div>
+
+      <div class="campo">
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem"></textarea>
+      </div>
+    </div>
+
+   <!-- Carrinho -->
+<div class="carrinho">
+  <h2>SOLICITAÇÕES</h2>
+  <div id="itens-carrinho"></div>
+  <p id="total-carrinho">Total: R$ 0,00</p>
+  <button class="btn-whatsapp finalizar" onclick="finalizarPedido()">
+    <img src="assets/img/zap.jpg" alt="WhatsApp"> Finalizar Solicitação
+  </button>
+</div>
+
+  </section>
+
+  <footer>
+    <p>© 2025 Eribaldo Oliveira - Todos os direitos reservados.</p>
+    <a href="https://wa.me/5579988035219?text=Olá,%20gostaria%20de%20fazer%20um%20pedido!" target="_blank">
+      <img src="assets/img/zap.jpg" alt="WhatsApp"> Fale comigo no WhatsApp
+    </a>
+  </footer>
+
+</body>
+</html>
