@@ -515,3 +515,17 @@ footer {
   text-align: center;
   padding: 10px;
 }
+
+.qr-code {
+  width: 150px;      /* tamanho padrão no PC */
+  max-width: 50%;    /* no celular, ocupa até metade da tela */
+  height: auto;      /* mantém proporção */
+  display: block;
+  margin: 10px auto; /* centraliza */
+}
+
+@media (max-width: 768px) {
+  .qr-code {
+    max-width: 60%;  /* QR Code maior no celular */
+  }
+}
