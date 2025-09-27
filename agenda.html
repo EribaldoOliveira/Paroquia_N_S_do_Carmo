@@ -1,120 +1,158 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <title>Agenda - Paróquia N S do Carmo</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fcfbf0ff;
-      color: #333;
-      padding: 20px;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    
-    /* Nav estilizada */
-nav {
-  text-align: center;
-  margin: 15px 0;
-  background: #b8ae23ff; /* cor de destaque */
-  padding: 10px 0;
-  border-radius: 10px;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agenda - Paróquia N S do Carmo</title>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
-nav a {
-  display: inline-block;
-  margin: 0 12px;
-  padding: 8px 15px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background 0.3s, color 0.3s, transform 0.2s;
-}
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* ocupa toda a altura da tela */
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 20px;
+    background-color: #b8ae23ff;
+    border-radius: 10px;
+  }
 
-nav a:hover {
-  background: #fffcd6ff; /* cor clara ao passar o mouse */
-  color: #333;
-  transform: scale(1.1);
-}
+  .voltar {
+    background-color: rgb(252, 248, 197);
+    padding: 10px 20px;
+    color: black !important;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+  }
 
-    h2 {
-      color: #b8ae23ff;
-    }
-    .evento {
-      background: #b8ae23ff;
-      color: black;
-      padding: 5px 10px;
+  .voltar:hover {
+    background-color: #f1e35d;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  nav {
+    text-align: center;
+    margin: 15px 0;
+    background: #b8ae23ff;
+    padding: 10px 0;
+    border-radius: 10px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 0 12px;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+  }
+
+  nav a:hover, nav a.active {
+    background-color: #fffcd6ff;
+    color: #333;
+    transform: scale(1.1);
+  }
+
+  main {
+    max-width: 900px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  section {
+    background-color: #f0e8b9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+
+  h2 {
+    color: #b8ae23ff;
+    text-decoration: underline;
+    margin-bottom: 15px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .evento {
+    background: #b8ae23ff;
+    color: black;
+    padding: 5px 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+  ul ul {
+    margin-left: 20px;
+    margin-top: 5px;
+  }
+
+  main {
+    flex: 1; /* ocupa o espaço restante, empurrando o footer para baixo */
+  }
+  footer {
+    background-color: #b8ae23ff;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    border-radius: 8px 8px 0 0;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 600px) {
+    nav a {
+      display: block;
       margin: 5px 0;
-      border-radius: 5px;
-      display: inline-block;
     }
-
-.voltar {
-  background-color: rgb(252, 248, 197);
-  padding: 10px 20px;
-  color: black !important; /* força o texto preto */
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.voltar:hover {
-  background-color: #f1e35d;
-  color: black !important;  /* garante que continue preto no hover */
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-nav a.active {
-  background-color: #fffcd6ff; /* destaque para o ativo */
-  color: #333;
-  transform: scale(1.1);
-}
-
-
-  </style>
+    .voltar {
+      width: 100%;
+    }
+  }
+</style>
 </head>
-
 <body>
 
-  <body>
-  <header>
-    <h1>Agenda Atual  </h1>
-
-<button 
-    class="voltar" 
-    onclick="window.location.href='index.html'">
-  ⬅ Voltar para a página inicial
-</button>
+<header>
+  <h1>Agenda Atual</h1>
+  <button class="voltar" onclick="window.location.href='index.html'">
+    ⬅ Voltar para a página inicial
+  </button>
+</header>
 
 <nav>
   <a href="index.html">Home</a>
-  <!-- <a href="#oracoes">Orações</a> -->
-   <a href="servicos.html">Serviços</a>
-  <!-- <a href="#produtos">Serviços</a> -->
-  <!-- <a href="#produtos">Celebrações</a> -->
-  <!-- <a href="#pedido">Eventos</a> -->
-  <!-- <a href="#sobre">Sobre</a> -->
+  <a href="servicos.html">Serviços</a>
   <a href="perguntas.html">Perguntas Frequentes</a>
-  <!-- <a href="#contato">Contato</a> -->
-  <a href="agenda.html"  class="active">Agenda</a> <!-- link para a página da agenda -->
+  <a href="agenda.html" class="active">Agenda</a>
 </nav>
 
-  </header>
-
-  <div style="text-align: center;">
-  <!-- Igreja Matriz -->
-  <main style="display: inline-block; text-align: left; margin: 10px auto; width: 80%; max-width: 910px;">
-    <h2 style="text-decoration: underline;">Igreja Matriz - Alto da Jaqueira</h2>
+<main>
+  <section>
+    <h2>Igreja Matriz - Alto da Jaqueira</h2>
     <ul>
       <li><span class="evento">Batizados:</span> 3° domingo de cada mês às 9h</li>
       <li><span class="evento">Preparação de pais e padrinhos:</span> Na sexta-feira que antecede o domingo do batizado</li>
@@ -126,38 +164,48 @@ nav a.active {
             <li>RG dos padrinhos</li>
             <li>Certidão de nascimento da criança</li>
             <li>Comprovante de residência dos pais</li>
-          </ul><br>
+          </ul>
           <li><strong>Atenção!</strong> A criança deve ter menos de 7 anos e os padrinhos precisam ser solteiros, livres, desimpedidos ou casados na igreja.</li>
         </ul>
       </li>
     </ul>
-  </main>
+  </section>
 
-  <br>
-
-  <!-- Capela Santa Rita -->
-  <main style="display: inline-block; text-align: left; margin: 10px auto; width: 80%; max-width: 910px;">
-    <h2 style="text-decoration: underline;">Capela Santa Rita - Ponta da Asa</h2>
+  <section>
+    <h2>Capela Santa Rita - Ponta da Asa</h2>
     <ul>
       <li><span class="evento">Missa:</span> Domingos às 10:00h</li>
     </ul>
-  </main>
+  </section>
 
-  <br>
-
-  <!-- Capela São Miguel Arcanjo -->
-  <main style="display: inline-block; text-align: left; margin: 10px auto; width: 80%; max-width: 910px;">
-    <h2 style="text-decoration: underline;">Capela São Miguel Arcanjo - Cidade Nova</h2>
+  <section>
+    <h2>Capela São Miguel Arcanjo - Cidade Nova</h2>
     <ul>
       <li><span class="evento">Missa:</span> Sábados às 19:00h</li>
     </ul>
-  </main>
-</div>
+  </section>
+</main>
 
+<footer>
+  <p>© 2025 Desenvolvedor Eribaldo Oliveira - Paróquia N S do Carmo - Todos os direitos reservados.</p>
+</footer>
 
-  <footer class="footer-agenda">
-    <p>© 2025 Desenvolvedor Eribaldo Oliveira - Paróquia N S do Carmo - Todos os direitos reservados.</p>
-  </footer>
+<script>
+  // Inicialmente todos os cards fechados
+  document.querySelectorAll('section ul').forEach(ul => {
+    ul.style.display = 'none';
+  });
+
+  // Alterna visibilidade ao clicar no título do card
+  document.querySelectorAll('section h2').forEach(title => {
+    title.style.cursor = 'pointer'; // mostra que é clicável
+    title.addEventListener('click', () => {
+      const ul = title.nextElementSibling;
+      ul.style.display = ul.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+</script>
+
 
 </body>
 </html>
