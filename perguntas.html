@@ -6,14 +6,138 @@
   <title>Perguntas Frequentes - Paróquia N S do Carmo</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/script.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fcfbf0ff;
+      color: #333;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 10px;
+      padding: 20px;
+      background-color: #b8ae23ff;/* fundo do header */
+      border-radius: 10px;
+    }
+
+    /* Nav estilizada */
+    nav {
+      text-align: center;
+      margin: 15px 0;
+      background: #b8ae23ff;
+      padding: 10px 0;
+      border-radius: 10px;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 0 12px;
+      padding: 8px 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    }
+
+    nav a:hover {
+      background: #fffcd6ff;
+      color: #333;
+      transform: scale(1.1);
+    }
+
+    .voltar {
+      background-color: rgb(252, 248, 197);
+      padding: 10px 20px;
+      color: black !important;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .voltar:hover {
+      background-color: #f1e35d;
+      color: black !important;
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* FAQ */
+    .faq {
+      background-color: #f0e8b9; /* fundo claro */
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 20px auto; /* centraliza */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .faq-item {
+      margin-bottom: 15px;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 10px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      background-color: #b8ae23ff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .faq-question:hover {
+      background-color: #e5e1b8;
+      color: black;
+    }
+
+    .faq-answer {
+      padding: 10px;
+      display: none;
+      background-color: #fff9e0;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+
+    footer {
+      position: fixed;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    nav a.active {
+  background-color: #fffcd6ff; /* destaque para o ativo */
+  color: #333;
+  transform: scale(1.1);
+}
+
+
+  </style>
 </head>
 <body>
   <header>
     <h1>Perguntas Frequentes</h1>
-    <a class="voltar" href="index.html">⬅ Voltar para a página inicial</a>
+    <button class="voltar" onclick="window.location.href='index.html'">
+      ⬅ Voltar para a página inicial
+    </button>
   </header>
 
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="servicos.html">Serviços</a>
+    <a href="perguntas.html"  class="active">Perguntas Frequentes</a>
+    <a href="agenda.html">Agenda</a>
+  </nav>
+
   <main>
+    <h2 style="text-align: center; color: #b8ae23ff; text-decoration: underline;" >Clique na pergunta desejada</h2>
     <section class="faq">
       <div class="faq-item">
         <button class="faq-question">Qual o horário das missas aos domingos?</button>
@@ -41,5 +165,15 @@
   <footer>
     <p>© 2025 Desenvolvedor Eribaldo Oliveira - Paróquia N S do Carmo - Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    // Script para abrir/fechar respostas
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
 </body>
 </html>

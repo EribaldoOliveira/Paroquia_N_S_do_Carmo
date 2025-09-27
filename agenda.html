@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Agenda - Paróquia N S do Carmo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fcfbf0ff;
+      color: #333;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    /* Nav estilizada */
+nav {
+  text-align: center;
+  margin: 15px 0;
+  background: #b8ae23ff; /* cor de destaque */
+  padding: 10px 0;
+  border-radius: 10px;
+}
+
+nav a {
+  display: inline-block;
+  margin: 0 12px;
+  padding: 8px 15px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+  background: #fffcd6ff; /* cor clara ao passar o mouse */
+  color: #333;
+  transform: scale(1.1);
+}
+
+    h2 {
+      color: #b8ae23ff;
+    }
+    .evento {
+      background: #b8ae23ff;
+      color: black;
+      padding: 5px 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+.voltar {
+  background-color: rgb(252, 248, 197);
+  padding: 10px 20px;
+  color: black !important; /* força o texto preto */
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.voltar:hover {
+  background-color: #f1e35d;
+  color: black !important;  /* garante que continue preto no hover */
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+nav a.active {
+  background-color: #fffcd6ff; /* destaque para o ativo */
+  color: #333;
+  transform: scale(1.1);
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <body>
+  <header>
+    <h1>Agenda Atual  </h1>
+
+<button 
+    class="voltar" 
+    onclick="window.location.href='index.html'">
+  ⬅ Voltar para a página inicial
+</button>
+
+<nav>
+  <a href="index.html">Home</a>
+  <!-- <a href="#oracoes">Orações</a> -->
+   <a href="servicos.html">Serviços</a>
+  <!-- <a href="#produtos">Serviços</a> -->
+  <!-- <a href="#produtos">Celebrações</a> -->
+  <!-- <a href="#pedido">Eventos</a> -->
+  <!-- <a href="#sobre">Sobre</a> -->
+  <a href="perguntas.html">Perguntas Frequentes</a>
+  <!-- <a href="#contato">Contato</a> -->
+  <a href="agenda.html"  class="active">Agenda</a> <!-- link para a página da agenda -->
+</nav>
+
+  </header>
+
+  <div style="text-align: center;">
+  <!-- Igreja Matriz -->
+  <main style="display: inline-block; text-align: left; margin: 10px auto; width: 80%; max-width: 910px;">
+    <h2 style="text-decoration: underline;">Igreja Matriz - Alto da Jaqueira</h2>
+    <ul>
+      <li><span class="evento">Batizados:</span> 3° domingo de cada mês às 9h</li>
+      <li><span class="evento">Preparação de pais e padrinhos:</span> Na sexta-feira que antecede o domingo do batizado</li>
+      <li>
+        <span class="evento">Agendamento:</span> De terça a sábado, na igreja, das 14 às 18h.
+        <ul>
+          <li>Documentos necessários:</li>
+          <ul>
+            <li>RG dos padrinhos</li>
+            <li>Certidão de nascimento da criança</li>
+            <li>Comprovante de residência dos pais</li>
+          </ul><br>
+          <li><strong>Atenção!</strong> A criança deve ter menos de 7 anos e os padrinhos precisam ser solteiros, livres, desimpedidos ou casados na igreja.</li>
+        </ul>
+      </li>
+    </ul>
+  </main>
+
+  <br>
+
+  <!-- Capela Santa Rita -->
+  <main style="display: inline-block; text-align: left; margin: 10px auto; width: 80%; max-width: 910px;">
+    <h2 style="text-decoration: underline;">Capela Santa Rita - Ponta da Asa</h2>
+    <ul>
+      <li><span class="evento">Missa:</span> Domingos às 10:00h</li>
+    </ul>
+  </main>
+
+  <br>
+
+  <!-- Capela São Miguel Arcanjo -->
+  <main style="display: inline-block; text-align: left; margin: 10px auto; width: 80%; max-width: 910px;">
+    <h2 style="text-decoration: underline;">Capela São Miguel Arcanjo - Cidade Nova</h2>
+    <ul>
+      <li><span class="evento">Missa:</span> Sábados às 19:00h</li>
+    </ul>
+  </main>
+</div>
+
+
+  <footer class="footer-agenda">
+    <p>© 2025 Desenvolvedor Eribaldo Oliveira - Paróquia N S do Carmo - Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>

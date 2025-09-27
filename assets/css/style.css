@@ -54,24 +54,38 @@ header h1, header h2, header h3 {
 }
 
 /* Navegação */
+/* Nav estilizada */
 nav {
-  background: #333;
   text-align: center;
-  padding: 12px 0;
+  margin: 15px 0;
+  background: #b8ae23ff; /* cor de destaque */
+  padding: 10px 0;
+  border-radius: 10px;
 }
 
 nav a {
-  color: white;
+  display: inline-block;
   margin: 0 12px;
+  padding: 8px 15px;
   text-decoration: none;
+  color: white;
   font-weight: bold;
-  font-size: 16px;
-  transition: color 0.3s ease;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
 }
 
 nav a:hover {
-  color: #e7e182ff;
+  background: #fffcd6ff; /* cor clara ao passar o mouse */
+  color: #333;
+  transform: scale(1.1);
 }
+
+nav a.active {
+  background-color: #fffcd6ff; /* destaque para o ativo */
+  color: #333;
+  transform: scale(1.1);
+}
+
 
 /* Carrossel */
 .apresentacao {
@@ -506,6 +520,28 @@ footer a img {
 
 
 footer {
+  /* position: fixed; */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.footer-perguntas {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.footer-agenda {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -529,3 +565,196 @@ footer {
     max-width: 60%;  /* QR Code maior no celular */
   }
 }
+
+
+/* ======================= */
+/* ===== Agenda Mensal ===== */
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #b8ae23ff;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header .voltar {
+  display: inline-block;
+  margin-top: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header .voltar:hover {
+  text-decoration: underline;
+}
+
+.agenda-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fffcd6ff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.agenda-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.agenda-header button {
+  padding: 8px 12px;
+  background: #b8ae23ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.agenda-header button:hover {
+  background: #d6ca2bff;
+}
+
+.dias-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.dias-mes {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.dia {
+  padding: 12px 0;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #ccc;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dia.evento {
+  background: #b8ae23ff;
+  color: white;
+}
+
+.dia:hover {
+  background: #f8f6d5ff;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #b8ae23ff;
+}
+
+.modal-content input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.modal-content button {
+  padding: 8px 15px;
+  background: #b8ae23ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.modal-content button:hover {
+  background: #d6ca2bff;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .agenda-container {
+    width: 90%;
+    padding: 15px;
+  }
+  .dia {
+    padding: 10px 0;
+    font-size: 14px;
+  }
+}
+
+#topoBtn {
+  position: fixed; /* fixa na tela */
+  bottom: 40px;
+  right: 40px;
+  z-index: 9999;
+  border: none;
+  outline: none;
+  background-color: #d6ca2bff;
+  color: white;
+  cursor: pointer;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#topoBtn:hover {
+  background-color: #fffcd6ff;
+  color: black;
+  transform: scale(1.05);
+}
+
+
+/* #topoBtn {
+  z-index: 9999;
+} */
